@@ -1,0 +1,1732 @@
+/* ===== INDEX PAGE: FULL-PAGE PARALLAX BACKGROUND ===== */
+body.index-page::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: url('../assets/images/hero/index-hero.png') no-repeat center var(--page-parallax-y, top) / cover;
+    background-attachment: fixed;
+    will-change: background-position;
+    transition: background-position 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* ===== GLOBAL OVERRIDE: TITLES & SUBTITLES COLOR ===== */
+h1, h2, h3, h4, h5, h6,
+.hero-title, .hero-subtitle, .subtitle,
+.section-title, .artwork-title, .artwork-details,
+.image-title, .image-subtitle, .technique-card h3,
+.fullscreen-gallery-page .gallery-header h1,
+.biography-hero h1, .biography-hero .subtitle {
+    color: #8B4513 !important;
+}
+
+/* Make hero transparent and use overlay only (no image here) */
+.index-page .hero { background: transparent !important; }
+.index-page .hero::before {
+    /* No overlay: show the index background image unaltered */
+    background: transparent !important;
+    -webkit-mask-image: none;
+    mask-image: none;
+}
+
+/* Index cards and typography over dark background (biography style) */
+.index-page .section-title { color: #f5f5dc; font-family: 'Playfair Display', serif; }
+.index-page .gallery-grid { color: #f5f5dc; }
+.index-page .artwork-card {
+    background: rgba(18, 18, 18, 0.35) !important;
+    border: 1px solid #29170a;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+.index-page .artwork-title,
+.index-page .artwork-details { color: #f5f5dc; }
+.index-page .loading-text { color: #f5f5dc; opacity: 0.85; }
+
+/* Footer theme on index (biography style) */
+.index-page .footer {
+    background: rgba(18, 18, 18, 0.6);
+    border-top: 1px solid rgba(139, 69, 19, 0.2);
+}
+.index-page .footer, .index-page .footer a, .index-page .footer h3, .index-page .footer p {
+    color: #f5f5dc !important;
+}
+.index-page .social-links a { background: rgba(51,51,51,0.8); }
+.index-page .social-links a:hover { background: #8B4513; }
+
+/* Ensure footer navigation links are always visible on main pages */
+.index-page .footer .footer-section ul,
+.contact-page .footer .footer-section ul,
+.biography-page .footer .footer-section ul {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 1.5rem !important;
+}
+.index-page .footer .footer-section a,
+.contact-page .footer .footer-section a,
+.biography-page .footer .footer-section a {
+    color: #f5f5dc !important;
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+@media (max-width: 580px) {
+    body.index-page::before {
+        background-attachment: scroll !important;
+        background-position: center top !important;
+    }
+    .index-page .hero::before { --index-hero-overlay: 0; }
+}
+
+@media (min-width: 581px) and (max-width: 768px) {
+    body.index-page::before {
+        background-attachment: scroll !important;
+        background-position: center top !important;
+    }
+    .index-page .hero::before { --index-hero-overlay: 0; }
+}
+/* CONTACT PAGE FOOTER THEME (biography style) */
+.contact-page .footer {
+    background: rgba(18, 18, 18, 0.6);
+    border-top: 1px solid rgba(139, 69, 19, 0.2);
+}
+.contact-page .footer, .contact-page .footer a, .contact-page .footer h3, .contact-page .footer p {
+    color: #f5f5dc !important;
+}
+.contact-page .social-links a {
+    background: rgba(51, 51, 51, 0.8);
+}
+.contact-page .social-links a:hover {
+    background: #8B4513;
+}
+/* BIOGRAPHY PAGE FOOTER THEME (biography style) */
+.biography-page .footer {
+    background: rgba(18, 18, 18, 0.6);
+    border-top: 1px solid rgba(139, 69, 19, 0.2);
+}
+.biography-page .footer, .biography-page .footer a, .biography-page .footer h3, .biography-page .footer p {
+    color: #f5f5dc !important;
+}
+.biography-page .social-links a {
+    background: rgba(51, 51, 51, 0.8);
+}
+.biography-page .social-links a:hover {
+    background: #8B4513;
+}
+/* ===== CONTACT PAGE: FULL-PAGE PARALLAX BACKGROUND ===== */
+body.contact-page::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: url('../assets/images/hero/contact-hero.png') no-repeat center var(--page-parallax-y, top) / cover;
+    background-attachment: fixed;
+    will-change: background-position;
+    transition: background-position 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* Ensure the hero section itself is transparent so the page background is visible */
+.contact-hero {
+    background: transparent !important;
+}
+/* optimized.css - VERSION DÉFINITIVE (surcharge propre) */
+/**
+ * optimized.css - VERSION DÉFINITIVE
+ * Surcharge components.css spécifiquement pour la biographie
+ * Pas de conflits avec les autres pages
+ * Responsive complet (mobile/tablette/desktop)
+ */
+
+/* ===== RÉINITIALISATION ===== */
+/* Réinitialisation déplacée dans reset.css / main.css */
+
+/* ===== HEADER ===== */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(18, 18, 18, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(139, 69, 19, 0.2);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Header au scroll */
+.header.header-scrolled {
+    background: rgba(10, 10, 10, 0.98);
+}
+
+@media (min-width: 581px) and (max-width: 768px) {
+    /* Harmoniser la hauteur du header et le padding du nav pour éviter
+       une zone de révélation plus large sur tablette (581–768px). */
+    .biography-page {
+        --header-height: 60px;
+        --header-height-mobile: 60px;
+    }
+    .biography-page .header {
+        height: var(--header-height) !important;
+        min-height: var(--header-height) !important;
+        overflow: hidden; /* Prévenir tout débordement visuel */
+    }
+    .biography-page .nav {
+        padding: 0.5rem 1rem !important; /* réduire la hauteur visuelle du header */
+    }
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.logo a {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: #f5f5dc;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    transition: opacity 0.28s ease, transform 0.28s ease, color 0.28s ease;
+}
+
+.nav-links a {
+    color: #f5f5dc;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+    padding: 0.5rem 0;
+}
+
+.nav-links a:hover {
+    color: #8B4513;
+}
+
+.nav-links a.active {
+    color: #8B4513;
+}
+
+.nav-links a.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #8B4513;
+}
+
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: #f5f5dc;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* ===== SUPPORT POUR NAVIGATION.JS ===== */
+/* S'assurer que le bouton menu est visible sur mobile */
+@media (max-width: 768px) {
+    .mobile-menu-btn {
+        display: block !important;
+        background: none;
+        border: none;
+        color: #f5f5dc !important;
+        font-size: 1.5rem;
+        cursor: pointer;
+        padding: 0.5rem;
+        transition: color 0.3s ease;
+        z-index: 1001;
+    }
+    
+    .mobile-menu-btn:hover {
+        color: #8B4513 !important;
+    }
+    
+    /* Icône quand menu ouvert (géré par navigation.js) */
+    .nav-links.active ~ .mobile-menu-btn i.fa-bars,
+    .mobile-menu-btn.active i.fa-bars {
+        display: none;
+    }
+    
+    .nav-links.active ~ .mobile-menu-btn i.fa-times,
+    .mobile-menu-btn.active i.fa-times {
+        display: inline-block;
+    }
+    
+    /* Cacher l'icône croix par défaut */
+    .mobile-menu-btn i.fa-times {
+        display: none;
+    }
+}
+
+/* Sur desktop, cacher le bouton */
+@media (min-width: 769px) {
+    .mobile-menu-btn {
+        display: none !important;
+    }
+}
+
+/* Animation pour l'icône du menu */
+.mobile-menu-btn i {
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.mobile-menu-btn[aria-expanded="true"] i {
+    transform: rotate(90deg);
+}
+
+/* Desktop specific scroll effects */
+/* Mobile - toujours visible */
+@media (max-width: 580px) {
+    /* Disable full-page parallax on mobile for stability */
+    body.contact-page::before {
+        background-attachment: scroll !important;
+        background-position: center top !important;
+    }
+    /* Supprimer la compensation globale du body pour la page biographie.
+       On compense au niveau du hero pour éviter toute bande noire. */
+    body.biography-page {
+        padding-top: 0 !important;
+    }
+    .nav-links {
+        display: none !important;
+        position: fixed;
+        top: 70px; /* Hauteur du header */
+        left: 0;
+        width: 100%;
+        background: rgba(10, 10, 10, 0.98) !important;
+        backdrop-filter: blur(10px);
+        flex-direction: column !important;
+        padding: 2rem !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        border-top: 1px solid rgba(139, 69, 19, 0.3);
+        border-bottom: 1px solid rgba(139, 69, 19, 0.3);
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .nav-links.active {
+        display: flex !important;
+        max-height: 500px;
+        opacity: 1;
+        overflow: visible;
+    }
+    
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+        margin: 0.5rem 0;
+    }
+    
+    .nav-links a {
+        display: block;
+        color: #f5f5dc !important;
+        padding: 1rem !important;
+        border-bottom: 1px solid rgba(139, 69, 19, 0.2) !important;
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
+    }
+    
+    .nav-links a:hover {
+        color: #8B4513 !important;
+        background: rgba(139, 69, 19, 0.1) !important;
+        padding-left: 1.5rem !important;
+    }
+    
+    .nav-links a.active {
+        color: #8B4513 !important;
+        background: rgba(139, 69, 19, 0.15) !important;
+    }
+    
+    .mobile-menu-btn {
+        display: block !important;
+        background: none;
+        border: none;
+        color: #f5f5dc !important;
+        font-size: 1.5rem;
+        cursor: pointer;
+        padding: 0.5rem;
+        transition: color 0.3s ease;
+    }
+    
+    .mobile-menu-btn:hover {
+        color: #8B4513 !important;
+    }
+    
+    .mobile-menu-btn[aria-expanded="true"] {
+        color: #8B4513 !important;
+    }
+    
+    .header.scrolled {
+        background: rgba(10, 10, 10, 0.98) !important;
+    }
+    
+}
+/* ===== HERO SECTION ===== */
+.biography-hero {
+    position: relative;
+    height: 100vh;
+    min-height: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 80px;
+    padding: 0 20px;
+    overflow: hidden;
+    
+    /* Parallaxe amplifié : 0% → 60% */
+    /* Removed opaque gradient overlay to show image clearly */
+    background: url('../assets/images/hero/biography-hero.png') no-repeat center top;
+    background-size: cover;
+    background-attachment: fixed;
+    transition: background-position 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* ===== PARALLAXE POUR CONTACT HERO ===== */
+.contact-hero {
+    /* garder le dégradé + image défini inline, mais activer le parallaxe */
+    background-attachment: fixed !important;
+    /* position contrôlée via variable pour animation fluide */
+    background-position: center var(--parallax-contact-y, top) !important;
+    transition: background-position 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+    /* agrandir la zone visible et centrer le contenu */
+    position: relative;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* laisser de l'espace top pour le header fixe sans créer de bande */
+    padding-top: var(--header-height, 60px);
+}
+
+/* État actif pour sémantique (la position est gérée par variable) */
+.contact-hero.parallax-active { --parallax-active: 1; }
+
+.biography-hero.parallax-active {
+    background-position: center 60% !important;
+}
+
+/* ===== CONTACT PAGE SPECIFIC STYLES (merged from contact.css) ===== */
+body.contact-page .contact-hero {
+    /* Use the full-page background from body.contact-page::before
+       and keep the hero transparent so the image is visible behind. */
+    background: transparent !important;
+    color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+    overflow: hidden;
+    /* Match index hero sizing to fully enjoy the parallax */
+    min-height: 100vh;
+    height: 100vh;
+    margin-top: 80px; /* compensate header like other heroes */
+}
+
+body.contact-page .contact-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    /* No overlay: show the background image unaltered */
+    background: transparent;
+    -webkit-mask-image: none;
+    mask-image: none;
+    pointer-events: none;
+}
+
+body.contact-page .contact-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: white;
+    
+    /* Ombre améliorée : plus de profondeur */
+    text-shadow: 
+        0 2px 4px rgba(0, 0, 0, 0.8),
+        0 4px 12px rgba(0, 0, 0, 0.6),
+        0 6px 20px rgba(139, 69, 19, 0.3);
+    
+    margin-bottom: 1rem;
+    opacity: 0;  /* Important : commencer à 0 pour l'animation */
+    transform: translateY(30px);
+    
+    /* Animation légèrement améliorée */
+    animation: fadeInUp 1.2s cubic-bezier(0.19, 1, 0.22, 1) 0.3s forwards;
+    
+    /* Petit plus : légère variation de graisse */
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+body.contact-page .contact-hero .subtitle {
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    color: #f5f5dc;
+    
+    /* Ombre subtile pour le sous-titre aussi */
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+    
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease 0.6s forwards;
+    max-width: 800px;
+    margin: 0 auto;
+    
+    /* Amélioration typographique */
+    font-weight: 300;
+    letter-spacing: 0.03em;
+    line-height: 1.6;
+}
+
+body.contact-page .contact-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem 4rem;
+}
+
+body.contact-page .contact-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    margin-bottom: 4rem;
+}
+
+@media (min-width: 768px) {
+    body.contact-page .contact-content {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+body.contact-page .contact-info,
+body.contact-page .contact-form {
+    background: rgba(18, 18, 18, 0.35);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    padding: 2rem;
+    border-radius: 10px;
+    border: 1px solid #29170a;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    color: #f5f5dc;
+}
+
+body.contact-page .contact-info h2,
+body.contact-page .contact-form h2 {
+    margin-bottom: 2rem;
+    color: #f5f5dc;
+    border-bottom: 2px solid #8B4513;
+    padding-bottom: 0.5rem;
+    font-family: 'Playfair Display', serif;
+}
+
+body.contact-page .info-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+}
+
+body.contact-page .info-icon {
+    font-size: 1.5rem;
+    color: #8B4513;
+    margin-right: 1rem;
+    min-width: 30px;
+}
+
+body.contact-page .info-content h3 {
+    margin-bottom: 0.5rem;
+    color: #f5f5dc;
+    font-family: 'Playfair Display', serif;
+}
+
+body.contact-page .info-content p {
+    color: #f5f5dc;
+    opacity: 0.9;
+    line-height: 1.7;
+}
+
+body.contact-page .social-links-contact {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+body.contact-page .social-links-contact a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: #333;
+    color: white;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+body.contact-page .social-links-contact a:hover {
+    background: #8B4513;
+    transform: translateY(-3px);
+}
+
+body.contact-page .hidden { display: none !important; }
+
+body.contact-page .form-group { margin-bottom: 1.5rem; }
+
+body.contact-page .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #f5f5dc;
+    font-weight: 500;
+}
+
+body.contact-page .form-group input,
+body.contact-page .form-group textarea,
+body.contact-page .form-group select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #29170a;
+    border-radius: 6px;
+    background: rgba(10, 10, 10, 0);
+    color: #f5f5dc;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+body.contact-page .form-group input:focus,
+body.contact-page .form-group textarea:focus,
+body.contact-page .form-group select:focus {
+    outline: none;
+    border-color: #8B4513;
+    box-shadow: 0 0 0 3px rgba(139, 69, 19, 0.15);
+    background: rgba(12, 12, 12, 0);
+}
+
+body.contact-page .form-group textarea { min-height: 150px; resize: vertical; }
+
+body.contact-page .submit-btn {
+    background: #8B4513;
+    color: #f5f5dc;
+    border: 1px solid #29170a;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.1s ease;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    width: 100%;
+    box-shadow: 0 8px 25px rgba(139, 69, 19, 0.4);
+}
+
+body.contact-page .submit-btn:hover {
+    background: #7a3f12;
+    transform: translateY(-1px);
+    box-shadow: 0 10px 30px rgba(139, 69, 19, 0.45);
+}
+
+body.contact-page .map-container { margin-top: 4rem; border-radius: 8px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+body.contact-page .map-container iframe { width: 100%; height: 300px; border: none; }
+
+body.contact-page .back-to-portfolio { display: inline-block; margin-top: 3rem; padding: 1rem 2rem; background: #333; color: white; text-decoration: none; border-radius: 4px; transition: background 0.3s ease; }
+body.contact-page .back-to-portfolio:hover { background: #555; }
+
+body.contact-page .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; justify-content: center; align-items: center; }
+
+body.contact-page .modal-content { background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); padding: 2rem; border-radius: 8px; max-width: 500px; width: 90%; text-align: center; }
+
+@media (min-width: 1025px) {
+    body.contact-page .contact-container { margin-top: -8vh; position: relative; z-index: 1; }
+}
+
+@media (max-width: 768px) {
+    body.contact-page .contact-hero::before { --contact-hero-overlay: 0; }
+}
+
+body.contact-page .modal h3 { color: #8B4513; margin-bottom: 1rem; }
+body.contact-page .close-modal { background: #8B4513; color: white; border: none; padding: 0.5rem 1.5rem; border-radius: 4px; cursor: pointer; margin-top: 1rem; }
+
+body.contact-page .fa-spin { animation: fa-spin 1s infinite linear; margin-right: 10px; }
+@keyframes fa-spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+body.contact-page .submit-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+/* ===== End contact page styles ===== */
+
+.biography-hero h1 {
+    
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: white;
+    
+    /* Ombre améliorée : plus de profondeur */
+    text-shadow: 
+        0 2px 4px rgba(0, 0, 0, 0.8),
+        0 4px 12px rgba(0, 0, 0, 0.6),
+        0 6px 20px rgba(139, 69, 19, 0.3);
+    
+    margin-bottom: 1rem;
+    opacity: 0;  /* Important : commencer à 0 pour l'animation */
+    transform: translateY(30px);
+    
+    /* Animation légèrement améliorée */
+    animation: fadeInUp 1.2s cubic-bezier(0.19, 1, 0.22, 1) 0.3s forwards;
+    
+    /* Petit plus : légère variation de graisse */
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+.biography-hero .subtitle {
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    color: #f5f5dc;
+    
+    /* Ombre subtile pour le sous-titre aussi */
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+    
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease 0.6s forwards;
+    max-width: 800px;
+    margin: 0 auto;
+    
+    /* Amélioration typographique */
+    font-weight: 300;
+    letter-spacing: 0.03em;
+    line-height: 1.6;
+}
+
+/* Animation fadeInUp optimisée */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(40px) scale(0.98);
+        filter: blur(4px);
+    }
+    70% {
+        opacity: 0.8;
+        transform: translateY(5px) scale(1.01);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
+
+/* ===== SECTIONS BIOGRAPHIE (DESKTOP) ===== */
+.biography-section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 6rem 0;
+    overflow: hidden;
+    transition: background-position 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* Section gauche - Desktop parallaxe */
+#section-1 {
+    /* Parallaxe : 30% → 80% */
+    background: 
+        linear-gradient(to right, 
+            rgba(10, 10, 10, 0) 0%,
+            rgba(10, 10, 10, 0) 30%,
+            rgba(10, 10, 10, 0) 60%,
+            transparent 100%
+        ),
+        url('../assets/images/portfolio/Lapin-Piskel-1.png') no-repeat left center;
+    background-size: 40% auto;
+    background-attachment: fixed;
+}
+
+#section-1.parallax-active {
+    background-position: left 80% !important;
+}
+
+/* Section droite - Desktop parallaxe */
+#section-2 {
+    /* Parallaxe : 30% → 80% */
+    background: 
+        linear-gradient(to left, 
+            rgba(10, 10, 10, 0) 0%,
+            rgba(10, 10, 10, 0) 30%,
+            rgba(10, 10, 10, 0) 60%,
+            transparent 100%
+        ),
+        url('../assets/images/portfolio/Lapin-Piskel-2.gif') no-repeat right center;
+    background-size: 40% auto;
+    background-attachment: fixed;
+}
+
+#section-2.parallax-active {
+    background-position: right 80% !important;
+}
+
+/* ===== CONTENEURS TEXTE (effet verre unique) ===== */
+.text-container {
+    position: relative;
+    z-index: 10;
+    width: 50%;
+    padding: 3rem;
+    background: 
+        /* Couche verre - Fond principal avec transparence */
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.018) 0%,
+            rgba(255, 255, 255, 0.015) 30%,
+            rgba(255, 255, 255, 0.01) 70%,
+            rgba(255, 255, 255, 0) 100%
+        ),
+        /* Texture subtile en arrière-plan */
+        repeating-linear-gradient(
+            45deg,
+            rgba(10, 10, 10, 0.95),
+            rgba(10, 10, 10, 0.95) 1px,
+            rgba(15, 12, 10, 0.95) 1px,
+            rgba(15, 12, 10, 0.95) 2px
+        ),
+        /* Base sombre avec transparence pour l'effet verre */
+        rgba(12, 10, 8, 0.75);
+    
+    /* Effet verre poli */
+    backdrop-filter: blur(20px) saturate(180%) contrast(1.1);
+    -webkit-backdrop-filter: blur(20px) saturate(180%) contrast(1.1);
+    
+    /* Bordure subtile type verre */
+    border: 1px solid rgba(41, 23, 10, 0.4);
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    
+    border-radius: 12px;
+    
+    /* Ombres pour l'effet verre */
+    box-shadow: 
+    /* Couche 1 : Ombre très douce et étendue */
+    0 0 0 1px rgba(0, 0, 0, 0.1),
+    
+    /* Couche 2 : Ombre moyenne */
+    0 5px 15px rgba(0, 0, 0, 0.4),
+    
+    /* Couche 3 : Ombre principale */
+    0 20px 40px rgba(0, 0, 0, 0.7),
+    
+    /* Couche 4 : Ombre lointaine */
+    0 40px 80px rgba(0, 0, 0, 0.3),
+        
+        /* Reflets subtils type verre */
+        inset 0 2px 4px rgba(255, 255, 255, 0.2),
+        inset 0 -2px 4px rgba(0, 0, 0, 1),
+        
+        /* Bordure lumineuse intérieure */
+        inset 0 0 20px rgba(255, 255, 255, 0.02),
+        
+        /* Légère surbrillance sur les bords */
+        0 0 0 1px rgba(255, 255, 255, 0.08);
+    
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.4s ease;
+}
+
+/* Version générale du hover */
+.text-container:hover {
+    transform: translateY(-10px);
+    backdrop-filter: blur(25px) saturate(200%) contrast(1.15);
+    -webkit-backdrop-filter: blur(25px) saturate(200%) contrast(1.15);
+    box-shadow: 0 30px 60px -12px rgba(139, 69, 19, 0.4), 
+                inset 0 3px 6px rgba(139, 69, 19, 0.05), 
+                inset 0 -3px 6px rgba(0, 0, 0, 1), 
+                inset 0 0 25px rgba(139, 69, 19, 0.05), 
+                0 0 0 1px rgba(139, 69, 19, 0.01);
+    border-color: rgba(41, 23, 10, 1);
+}
+
+/* Version SPÉCIFIQUE pour quand .visible est active (plus forte spécificité) */
+.text-container.visible:hover {
+    transform: translateY(-10px);
+    backdrop-filter: blur(25px) saturate(200%) contrast(1.15);
+    -webkit-backdrop-filter: blur(25px) saturate(200%) contrast(1.15);
+    box-shadow: 0 30px 60px -12px rgba(139, 69, 19, 0.4), 
+                inset 0 3px 6px rgba(139, 69, 19, 0.05), 
+                inset 0 -3px 6px rgba(0, 0, 0, 1), 
+                inset 0 0 25px rgba(139, 69, 19, 0.05), 
+                0 0 0 1px rgba(139, 69, 19, 0.01);
+    border-color: rgba(41, 23, 10, 1);
+}
+
+/* Overlay de brillance optionnel (effet "wet glass") */
+.text-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.03) 0%,
+            rgba(255, 255, 255, 0) 20%,
+            rgba(255, 255, 255, 0) 80%,
+            rgba(255, 255, 255, 0.02) 100%
+        ),
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(255, 255, 255, 0.04) 0%,
+            transparent 50%
+        );
+    border-radius: 12px;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.text-container.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Positionnement desktop */
+#section-1 .text-container {
+    margin-left: auto;
+    margin-right: 10%;
+}
+
+#section-2 .text-container {
+    margin-left: 10%;
+    margin-right: auto;
+}
+
+/* ===== TEXTE BIOGRAPHIE ===== */
+.biography-text {
+    font-family: 'Caveat', cursive;
+    font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+    line-height: 1.8;
+}
+
+.typewriter-text {
+    min-height: 300px;
+    white-space: pre-wrap;
+    position: relative;
+}
+
+.typewriter-text::after {
+    content: '...';
+    animation: blink 1s infinite;
+    color: #8B4513;
+    margin-left: 2px;
+}
+
+.typewriter-text.completed::after {
+    content: '';
+    animation: none;
+}
+
+.signature {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 700;
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(139, 69, 19, 0.3);
+    opacity: 0;
+    transition: opacity 1.5s ease;
+}
+
+.signature.visible {
+    opacity: 1;
+}
+
+/* ===== IMAGES INTERMÉDIAIRES (MOBILE SEULEMENT) ===== */
+.mobile-image-container {
+    display: none;
+    position: relative;
+    width: 100%;
+    max-width: 350px; /* ← Container limité */
+    margin: 2.5rem auto;
+    padding: 15px;
+    background: rgba(18, 18, 18, 0.2);
+    border-radius: 10px;
+    border: 1px solid #29170a;
+    text-align: center; /* ← Pour centrer l'image */
+}
+
+.mobile-image-container.visible {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.mobile-image {
+    max-width: 100%; /* ← Ne dépasse pas le container */
+    max-height: 450px; /* ← Hauteur max */
+    width: auto; /* ← Largeur s'adapte aux proportions */
+    height: auto; /* ← Hauteur s'adapte aux proportions */
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    display: inline-block; /* ← Pour centrer avec text-align */
+}
+
+.image-caption {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: #f5f5dc;
+    margin-top: 1rem;
+    font-style: italic;
+    padding: 0 1rem;
+}
+
+/* ===== IMAGE FINALE (TOUS APPAREILS) ===== */
+.final-image-container {
+    width: 100%;
+    max-width: 500px;
+    margin: 3rem auto;
+    padding: 20px;
+    background: rgba(18, 18, 18, 0.2);
+    border-radius: 15px;
+    border: 1px solid #29170a;
+    text-align: center;
+}
+
+.final-image-container.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.final-image {
+    max-width: 100%;
+    max-height: 600px;
+    width: auto;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+    display: inline-block;
+}
+
+/* ===== SECTION TECHNIQUES ===== */
+.techniques-section {
+    background: #0a0a0a;
+    padding: 6rem 20px;
+}
+
+.techniques-section h2 {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    color: #f5f5dc;
+    margin-bottom: 3rem;
+}
+
+.techniques-section h2::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 3px;
+    background: #8B4513;
+    margin: 1.5rem auto;
+}
+
+.techniques-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto 3rem;
+}
+
+.technique-card {
+    background: linear-gradient(180deg, rgba(8,8,8,0.65), rgba(12,12,12,0.65));
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    transition: transform 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
+    border: 1px solid rgba(139, 69, 19, 0.12);
+    color: #f5f5dc;
+    backdrop-filter: blur(8px) saturate(120%);
+}
+
+.technique-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255,255,255,0.02);
+    background: linear-gradient(180deg, rgba(16,16,16,0.72), rgba(20,20,20,0.72));
+}
+
+.technique-icon {
+    font-size: 3rem;
+    color: #8B4513;
+    margin-bottom: 1.5rem;
+}
+
+.technique-card h3 {
+    font-family: 'Playfair Display', serif;
+    color: #f5f5dc;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.technique-card p {
+    color: rgba(245, 245, 220, 0.9);
+    line-height: 1.6;
+}
+
+/* ===== BOUTONS ===== */
+.buttons-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.portfolio-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    max-width: 400px;
+    padding: 1rem 2rem;
+    background: #8B4513;
+    color: #f5f5dc;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.portfolio-button:hover {
+    background: transparent;
+    color: #8B4513;
+    border-color: #8B4513;
+    transform: translateY(-3px);
+}
+
+.portfolio-button.contact {
+    background: #713911;
+}
+
+.portfolio-button.contact:hover {
+    background: transparent;
+    color: #713911;
+    border-color: #713911;
+}
+
+/* ===== CONTROLES UTILISATEUR ===== */
+.user-controls {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 1000;
+}
+
+.control-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    background: rgba(18, 18, 18, 0.2);
+    color: #8B4513;
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.control-btn:hover {
+    background: rgba(41, 23, 10, 0.3); /* ← Fond très transparent */
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(139, 69, 19, 0.4);
+}
+
+/* ===== FOOTER ===== */
+.footer {
+    background-color: #0a0a0a;
+    padding: 3rem 0 1.5rem;
+    border-top: 1px solid rgba(139, 69, 19, 0.3);
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.footer-section {
+    text-align: center;
+    padding: 0;
+}
+
+.footer-section h3 {
+    font-family: 'Playfair Display', serif; /* ← REMPLACE var(--font-serif) */
+    color: #f5f5dc; /* ← REMPLACE var(--color-text) */
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-section h3::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 80px; /* ← UNE SEULE VALEUR */
+    height: 2px;
+    background-color: #8B4513; /* ← REMPLACE var(--color-primary) */
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.footer-section ul li {
+    margin-bottom: 0;
+}
+
+.footer-section a {
+    color: #f5f5dc;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: all 0.3s ease; /* ← Ajouté "all" pour plus de contrôle */
+    padding: 0.5rem 0;
+    position: relative;
+}
+
+.footer-section a:hover {
+    color: #8B4513; /* ← REMPLACE var(--color-primary) */
+    transform: translateY(-2px); /* ← Effet subtil au survol */
+}
+
+/* Indicateur de page active */
+.footer-section a[aria-current="page"],
+.footer-section a.active {
+    color: #8B4513; /* ← REMPLACE var(--color-primary) */
+}
+
+.footer-section a[aria-current="page"]::after,
+.footer-section a.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #8B4513; /* ← REMPLACE var(--color-primary) */
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(139, 69, 19, 0.2);
+    color: #888;
+    font-size: 0.9rem;
+}
+/* ===== NOTIFICATION ===== */
+.user-notification {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    background: rgba(10, 10, 10, 0.9); /* ← FOND SOMBRE TRANSPARENT */
+    color: #703810; /* ← TEXTE CRÈME (comme le thème) */
+    padding: 10px 20px; /* ← PLUS PETIT */
+    border-radius: 20px; /* ← COINS MOINS ARRONDIS */
+    font-family: var(--font-sans);
+    font-weight: 500; /* ← MOINS GRAS */
+    font-size: 0.85rem; /* ← PLUS PETIT */
+    z-index: 10000;
+    opacity: 0;
+    transform: translateX(40px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* ← OMBRE PLUS SUBTILE */
+    border: 1px solid #29170a; /* ← BORDURE MARRON DISCÈTE */
+    backdrop-filter: blur(10px); /* ← EFFET FLUO */
+    transition: all 0.3s ease; /* ← TRANSITION PLUS RAPIDE */
+    pointer-events: none;
+    max-width: 280px;
+    text-align: center;
+}
+
+/* ===== HEADER SCROLL EFFECT ===== */
+.header.scrolled {
+    background-color: rgba(18, 18, 18, 0.98);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+    border-bottom-color: rgba(139, 69, 19, 0.4);
+}
+
+/* ===== RESPONSIVE DESIGN - HIÉRARCHIE CORRIGÉE ===== */
+
+/* DESKTOP: 581px et plus */
+@media (min-width: 581px) {
+    /* MENU DESKTOP ORIGINAL - Style minimal */
+    .nav-links {
+        display: flex !important; /* ← Doit être flex sur desktop */
+        visibility: visible !important;
+        position: static !important;
+        transform: none !important;
+        opacity: 1 !important;
+        background: transparent !important;
+        flex-direction: row !important;
+        padding: 0 !important;
+        /* REMETTRE les valeurs par défaut */
+        max-height: none;
+        overflow: visible;
+        width: auto;
+        height: auto;
+        border: none;
+        box-shadow: none;
+        backdrop-filter: none;
+    }
+    
+    /* S'assurer que le menu est toujours visible */
+    .nav-links.active {
+        display: flex !important;
+        max-height: none;
+        opacity: 1;
+    }
+    
+    /* Cacher le bouton menu mobile sur desktop */
+    .mobile-menu-btn {
+        display: none !important;
+    }
+    
+    /* Style des liens desktop ORIGINAL */
+    .nav-links a {
+        color: #f5f5dc;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+        position: relative;
+        padding: 0.5rem 1rem; /* ← Espacement original */
+        display: inline-block; /* ← Style inline original */
+        border-bottom: none !important; /* ← Pas de bordure */
+        font-size: 1rem; /* ← Taille originale */
+        background: transparent !important; /* ← Pas de fond */
+        border-left: none !important; /* ← Pas de bordure gauche */
+        border-radius: 0 !important; /* ← Pas de coins arrondis */
+    }
+    
+    .nav-links a:hover {
+        color: #8B4513;
+        padding-left: 1rem !important; /* ← Garder même padding */
+        background: transparent !important; /* ← Pas de fond au survol */
+    }
+    
+    .nav-links a.active {
+        color: #8B4513;
+    }
+    
+    .nav-links a.active::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: #8B4513;
+    }
+    
+    /* Style des li desktop ORIGINAL */
+    .nav-links li {
+        width: auto !important; /* ← Largeur automatique */
+        text-align: left !important; /* ← Alignement original */
+        margin: 0 !important; /* ← Pas de marge verticale */
+        list-style: none; /* ← Style de liste */
+    }
+}
+
+/* MOBILE: 580px et moins - Mode mobile optimisé */
+@media (max-width: 580px) {
+    /* Désactiver parallaxe pour index/contact sur mobile */
+    .hero::before { background-attachment: scroll !important; background-position: center top !important; }
+    .contact-hero { background-attachment: scroll !important; background-position: center top !important; }
+    .contact-hero { min-height: 50vh; padding-top: var(--header-height, 60px) !important; }
+    /* 1. Désactiver parallaxe et ajuster images */
+    .biography-hero,
+    #section-1,
+    #section-2 {
+        background-attachment: scroll !important;
+    }
+    
+    /* 2. Héros mobile - Portrait entier */
+    .biography-hero {
+        height: 60vh;
+        min-height: 500px;
+        /* Utiliser uniquement le padding-top pour compenser le header fixe */
+        margin-top: 0 !important;
+        padding-top: var(--header-height, 60px) !important;
+        background-size: cover !important; /* couvrir toute la zone */
+        background-position: center top !important; /* ancrer en haut pour éviter la bande noire */
+        background-repeat: no-repeat !important;
+        background-attachment: scroll !important;
+    }
+    
+
+/* TABLETTE: 581px à 768px - même correction que mobile */
+@media (min-width: 581px) and (max-width: 768px) {
+    /* Disable full-page parallax on tablet for stability */
+    body.contact-page::before {
+        background-attachment: scroll !important;
+        background-position: center top !important;
+    }
+    /* Désactiver parallaxe pour index/contact sur tablette */
+    .hero::before { background-attachment: scroll !important; background-position: center top !important; }
+    .contact-hero { background-attachment: scroll !important; background-position: center top !important; }
+    .contact-hero { min-height: 55vh; padding-top: var(--header-height, 60px) !important; }
+    /* Idem tablette: pas de padding-top global pour le body sur la page biographie */
+    body.biography-page {
+        padding-top: 0 !important;
+    }
+    .biography-hero {
+        /* Conserver une grande hauteur mais corriger l'offset sous le header */
+        min-height: 60vh;
+        /* Supprime tout décalage en haut et compense via padding */
+        margin-top: 0 !important;
+        padding-top: var(--header-height, 60px) !important;
+        background-size: cover !important;
+        background-position: center top !important;
+        background-attachment: scroll !important;
+        background-repeat: no-repeat !important;
+    }
+    /* Surcharge plus spécifique pour neutraliser l'effet de .parallax-active
+       dans cette plage et garantir l'ancrage en haut (pas de bande noire). */
+    .biography-hero.parallax-active {
+        background-position: center top !important;
+        background-attachment: scroll !important;
+    }
+    /* S'assurer que tout pseudo-élément de recouvrement est bien ancré en haut. */
+    .biography-hero::before {
+        top: 0 !important;
+        background-position: center top !important;
+    }
+}
+    /* 3. Supprimer images de fond desktop des sections */
+    #section-1,
+    #section-2 {
+        background-image: none !important;
+        background-color: #0a0a0a !important;
+        min-height: auto;
+        padding: 3rem 0;
+    }
+    
+    /* 4. Conteneurs texte pleine largeur */
+    .text-container {
+        width: 95% !important;
+        margin: 0 auto !important;
+        padding: 2rem;
+    }
+    
+    /* 5. Images intermédiaires MOBILE - Portrait entier */
+    .mobile-image-container {
+        display: block !important;
+        visibility: visible !important;
+        width: 90%;
+        max-width: 320px; /* ← Plus petit pour mobile */
+        margin: 2rem auto;
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s ease;
+        padding: 10px;
+        background: rgba(18, 18, 18, 0.3);
+        border-radius: 10px;
+        border: 1px solid #29170a;
+        text-align: center;
+    }
+    
+    .mobile-image-container.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .mobile-image {
+        max-width: 100%;
+        max-height: 350px; /* ← Hauteur limitée */
+        width: auto; /* ← Largeur selon proportions */
+        height: auto; /* ← Hauteur selon proportions */
+        border-radius: 8px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        display: inline-block;
+    }
+    
+    /* 6. Typographie mobile */
+    .typewriter-text {
+        font-size: 1.5rem;
+        min-height: 200px;
+    }
+    
+    .signature {
+        font-size: 2.5rem;
+    }
+
+    
+    /* ===== MENU MOBILE (CRITIQUE) ===== */
+    /* Cacher le menu desktop par défaut */
+    .nav-links {
+        display: none !important;
+        position: fixed;
+        top: 70px; /* Hauteur du header */
+        left: 0;
+        width: 100%;
+        background: rgba(10, 10, 10, 0.98) !important;
+        backdrop-filter: blur(10px);
+        flex-direction: column !important;
+        padding: 2rem !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        border-top: 1px solid rgba(139, 69, 19, 0.3);
+        border-bottom: 1px solid rgba(139, 69, 19, 0.3);
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+        
+    /* Afficher le menu quand actif */
+    .nav-links.active {
+        display: flex !important;
+        max-height: 500px;
+        opacity: 1;
+        overflow: visible;
+    }
+    
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+        margin: 0.5rem 0;
+    }
+    
+    .nav-links a {
+        display: block;
+        color: #f5f5dc !important;
+        padding: 1rem !important;
+        border-bottom: 1px solid rgba(139, 69, 19, 0.2) !important;
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
+    }
+    
+    .nav-links a:hover {
+        color: #8B4513 !important;
+        background: rgba(139, 69, 19, 0.1) !important;
+        
+    }
+    
+    .nav-links a.active {
+        color: #8B4513 !important;
+        background: rgba(139, 69, 19, 0.15) !important;
+    }
+    
+    /* Afficher le bouton menu mobile */
+    .mobile-menu-btn {
+        display: block !important;
+        background: none;
+        border: none;
+        color: #f5f5dc !important;
+        font-size: 1.5rem;
+        cursor: pointer;
+        padding: 0.5rem;
+        transition: color 0.3s ease;
+    }
+    
+    .mobile-menu-btn:hover {
+        color: #8B4513 !important;
+    }
+    
+    .mobile-menu-btn[aria-expanded="true"] {
+        color: #8B4513 !important;
+    }
+    
+    /* 8. Techniques section */
+    .techniques-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .techniques-section h2 {
+        font-size: 2.2rem;
+    }
+    
+    /* 9. Boutons */
+    .portfolio-button {
+        min-width: 250px;
+        padding: 12px 25px;
+        font-size: 1.1rem;
+    }
+    
+    /* 10. Contrôles utilisateur */
+    .user-controls {
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .control-btn {
+        padding: 10px 16px;
+        font-size: 0.9rem;
+        min-width: 140px;
+    }
+    
+}   
+
+
+/* PETIT MOBILE: 480px et moins */
+@media (max-width: 480px) {
+    .biography-hero {
+        height: 50vh;
+        min-height: 400px;
+    }
+    
+    .biography-hero h1 {
+        font-size: 2rem;
+    }
+    
+    .biography-hero .subtitle {
+        font-size: 1rem;
+    }
+
+    /* ===== FIX HERO POSITIONING ON MOBILE ===== */
+    /* Ensure the biography hero sits directly under the fixed header
+       and that its background covers the top area (no black band). */
+    .biography-hero {
+        margin-top: 0 !important;
+        /* leave space for the fixed header so content isn't hidden */
+        padding-top: var(--header-height, 60px);
+    }
+
+    .biography-hero::before {
+        /* anchor the background to the top of the page so it doesn't appear shifted */
+        top: 0 !important;
+    }
+
+    @media (max-width: 768px) {
+        .biography-hero {
+            padding-top: var(--header-height-mobile, 60px) !important;
+            min-height: 50vh;
+        }
+        .biography-hero::before {
+            background-position: center top !important;
+        }
+    }
+    
+    .text-container {
+        padding: 1.5rem;
+    }
+    
+    .typewriter-text {
+        font-size: 1.3rem;
+    }
+    
+    .signature {
+        font-size: 2rem;
+    }
+    
+    .mobile-image {
+        height: 300px;
+    }
+    
+    .mobile-image-container {
+        width: 95%;
+        margin: 1.5rem auto;
+    }
+    
+    .technique-card {
+        padding: 1.8rem;
+    }
+    
+    .technique-card h3 {
+        font-size: 1.5rem;
+    }
+    
+    .portfolio-button {
+        min-width: 100%;
+        font-size: 1rem;
+    }
+    
+    .user-controls {
+        bottom: 15px;
+        right: 15px;
+    }
+    
+    .control-btn {
+        padding: 8px 12px;
+        font-size: 0.8rem;
+        min-width: 120px;
+    }
+
+/* ===== CORRECTION HEADER POUR BIOGRAPHY ===== */
+/* Forcer le thème sombre sur TOUTES les tailles d'écran */
+.biography-header {
+    background: rgba(18, 18, 18, 0.95) !important;
+    border-bottom: 1px solid rgba(139, 69, 19, 0.2) !important;
+}
+
+.biography-header .logo a {
+    color: #f5f5dc !important;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+}
+
+.biography-header .nav-links a {
+    color: #f5f5dc !important;
+}
+
+.biography-header .nav-links a:hover,
+.biography-header .nav-links a.active {
+    color: #8B4513 !important;
+    background: rgba(139, 69, 19, 0.1) !important;
+}
+
+.biography-header .nav-links a.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #8B4513;
+}
+
+/* Header au scroll */
+.biography-header.scrolled {
+    background: rgba(10, 10, 10, 0.98) !important;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3) !important;
+    border-bottom-color: rgba(139, 69, 19, 0.4) !important;
+}
+
+/* Bouton menu mobile sur biography */
+.biography-header .mobile-menu-btn {
+    color: #f5f5dc !important;
+}
+
+/* Styles du menu mobile pour biography */
+.biography-header .nav-links {
+    background: rgba(18, 18, 18, 0.98) !important;
+}
+
+}

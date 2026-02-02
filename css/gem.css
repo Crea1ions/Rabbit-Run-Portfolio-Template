@@ -1,0 +1,590 @@
+/* ===== GEM.CSS - Version ultra discrète ===== */
+
+.interactive-gem {
+    background: transparent !important;
+    padding: 1rem 0 2rem 0 !important;
+    margin: 0 auto !important;
+    position: relative;
+    border: none !important;
+    max-width: 100%;
+    overflow-anchor: auto; /* Fix scroll warning */
+    width: 100%;
+}
+
+.interactive-gem::before {
+    display: none !important;
+}
+
+.gem-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    opacity: 0.8;
+    transition: opacity 0.6s ease;
+}
+
+.gem-wrapper:hover {
+    opacity: 0.9;
+}
+
+/* En-tête presque invisible */
+.gem-intro {
+    text-align: center;
+    margin-bottom: 0.3rem;
+    opacity: 0.8;
+}
+
+.gem-title {
+    font-size: 1rem;
+    color: var(--color-cream) !important;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    margin-bottom: 0.3rem;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+.gem-title i {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.gem-subtitle {
+    font-size: 0.8rem;
+    color: #555 !important;
+    line-height: 1.5;
+    max-width: 85%;
+    margin: 0 auto;
+    font-style: normal;
+}
+
+/* Conteneur jeu très discret */
+.game-preview {
+    background: rgba(18, 18, 18, 0.45) !important;
+    border-radius: 6px;
+    border: 1px solid rgba(139, 69, 19, 0.35) !important;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    position: relative;
+    backdrop-filter: blur(2px);
+}
+
+.game-preview.replay-state {
+    border-color: rgba(139, 69, 19, 0.65) !important;
+    box-shadow: 0 0 0 1px rgba(139, 69, 19, 0.25), 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.play-button.replay-ready {
+    background: rgba(139, 69, 19, 0.2) !important;
+    color: #F5F5DC !important;
+    border-color: rgba(139, 69, 19, 0.8) !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+.game-replay-note {
+    margin: 0.75rem auto 0;
+    padding: 0.5rem 0.75rem;
+    max-width: 360px;
+    text-align: center;
+    font-size: 0.78rem;
+    color: #F5F5DC;
+    background: rgba(18, 18, 18, 0.7);
+    border: 1px solid rgba(139, 69, 19, 0.45);
+    border-radius: 6px;
+    letter-spacing: 0.2px;
+}
+
+.game-replay-note span {
+    color: rgba(245, 245, 220, 0.75);
+}
+
+.game-preview:hover {
+    border-color: rgba(139, 69, 19, 0.6) !important;
+    background: rgba(18, 18, 18, 0.6) !important;
+}
+
+.preview-placeholder {
+    position: relative;
+    background: rgba(18, 18, 18, 0.2);
+}
+
+#trexMiniCanvas {
+    width: 100% !important;
+    max-width: 768px !important;
+    min-width: 280px !important;
+    height: auto !important;
+    aspect-ratio: 4 / 1 !important;
+    display: block;
+    margin: 0 auto;
+    background: rgba(10, 10, 10, 0.7) !important;
+    border-radius: 4px;
+    outline: none !important;
+    border: 1px solid rgba(139, 69, 19, 0.3);
+}
+/* Media : */
+@media (max-width: 480px) {
+    #trexMiniCanvas {
+        min-width: 0 !important;
+        margin: 0 auto;
+        aspect-ratio: 3.2 / 1 !important;
+    }
+    
+    .game-preview {
+        padding: 0.35rem !important;
+    }
+
+    .play-button {
+        font-size: 0.85rem !important;
+        padding: 0.5rem 1.1rem !important;
+    }
+}
+
+@media (min-width: 1200px) {
+    #trexMiniCanvas {
+        max-width: 900px !important;  /* Encore plus large sur grands écrans */
+    }
+}
+
+@media (min-width: 1600px) {
+    #trexMiniCanvas {
+        max-width: 1024px !important;  /* Très grands écrans */
+    }
+}
+
+/* Sur très grands écrans, on peut agrandir un peu */
+@media (min-width: 1200px) {
+    #trexMiniCanvas {
+        max-width: 672px !important; /* 576 × 1.166 = 672 */
+        max-height: 224px !important; /* 192 × 1.166 = 224 */
+    }
+}
+
+/* Focus pour accessibilité */
+#trexMiniCanvas:focus-visible {
+    outline: 2px solid #666 !important;
+    outline-offset: 2px !important;
+}
+
+/* Overlay de démarrage - presque invisible */
+.preview-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(18, 18, 18, 0.92);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    transition: opacity 0.1s ease;
+    padding: 1rem;
+}
+
+.game-preview.playing .preview-overlay {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Bouton START très discret */
+.play-button {
+    background: rgba(139, 69, 19, 0.15) !important;
+    color: #8B4513 !important;
+    border: 1px solid #8B4513 !important;
+    padding: 0.6rem 1.5rem !important;
+    border-radius: 6px !important;
+    font-family: var(--font-primary) !important;
+    font-size: 0.9rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.5px;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.35);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    max-width: 100%;
+    white-space: nowrap;
+}
+
+.play-button:hover {
+    background: rgba(139, 69, 19, 0.3) !important;
+    color: #F5F5DC !important;
+    border-color: #8B4513 !important;
+}
+
+.play-button i {
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+/* Boutons de contrôle à l'intérieur du mini-jeu : texte et bordure thème */
+.game-preview .control-btn {
+    color: #8B4513 !important;
+    border-color: rgba(139,69,19,0.18) !important;
+}
+
+.game-preview .control-btn:hover {
+    color: #8B4513 !important;
+}
+
+.preview-hint {
+    font-size: 0.7rem !important;
+    color: #c8c1ae !important;
+    text-align: center;
+    line-height: 1.3;
+    max-width: 90%;
+    font-style: italic;
+    display: none; /* Caché initialement */
+}
+
+/* Afficher l'indication seulement quand le jeu est en cours */
+.game-preview.playing .preview-hint {
+    display: block;
+    position: absolute;
+    bottom: 10px; /* Plus éloigné du bord */
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 0.75rem !important;
+    color: #F5F5DC !important;
+    background: rgba(18, 18, 18, 0.92);
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-weight: 600; /* Très gras */
+    border: 1px solid rgba(139, 69, 19, 0.35);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    backdrop-filter: blur(4px);
+}
+/* Contrôles mini - très discrets */
+.game-controls-mini {
+    display: none !important; /* Masquer les contrôles initiaux */
+}
+
+/* Score seulement visible pendant le jeu */
+.game-preview.playing .game-controls-mini {
+    padding: 0.4rem 0.8rem !important; /* ← PLUS FIN */
+    min-height: 36px; /* ← HAUTEUR FIXE MINIMALE */
+}
+
+.score-mini {
+    font-size: 0.85rem !important;
+    color: #F5F5DC !important;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+}
+
+.score-label {
+    opacity: 0.8;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+/* Note technique - presque invisible */
+.tech-note {
+    text-align: center;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(139, 69, 19, 0.25);
+    opacity: 0.75;
+}
+
+.tech-note small {
+    color: #c8c1ae !important;
+    font-size: 0.7rem !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+}
+
+.tech-details-btn {
+    background: transparent;
+    border: none;
+    color: #8B4513 !important;
+    cursor: pointer;
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 2px;
+    transition: all 0.2s ease;
+    font-weight: 500;
+    border-bottom: 1px dotted rgba(139,69,19,0.45);
+}
+
+.tech-details-btn:hover {
+    color: #8B4513 !important;
+    border-bottom-style: solid;
+    background: rgba(150, 150, 150, 0.03);
+}
+
+/* Panel détails techniques */
+.tech-details-panel {
+    background: rgba(18, 18, 18, 0.95);
+    border-radius: 6px;
+    padding: 0.8rem;
+    margin-top: 0.6rem;
+    border-left: 3px solid rgba(139, 69, 19, 0.5);
+    font-size: 0.75rem;
+    color: #c8c1ae;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.2);
+    backdrop-filter: blur(2px);
+}
+
+.tech-details-panel h4 {
+    color: #F5F5DC;
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+    border-bottom: 1px solid rgba(139, 69, 19, 0.4);
+    padding-bottom: 0.4rem;
+}
+
+.tech-details-panel li {
+    color: #c8c1ae;
+    margin-bottom: 0.4rem;
+    padding-left: 1rem;
+    position: relative;
+    line-height: 1.4;
+}
+
+.tech-details-panel li::before {
+    content: '›';
+    color: #8B4513;
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+.code-link {
+    color: #F5F5DC;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(245, 245, 220, 0.5);
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.code-link:hover {
+    color: #8B4513;
+    border-bottom-color: #8B4513;
+}
+
+/* Mode sombre adaptation améliorée */
+@media (prefers-color-scheme: dark) {
+    .gem-title {
+        color: #ccc !important;
+    }
+    
+    .gem-subtitle {
+        color: #aaa !important;
+    }
+    
+    .play-button {
+        background: rgba(120, 120, 120, 0.4) !important;
+        color: #8B4513 !important;
+        border-color: #8B4513 !important;
+    }
+    
+    .play-button:hover {
+        background: rgba(120, 120, 120, 0.6) !important;
+        color: #8B4513 !important;
+        border-color: #8B4513 !important;
+    }
+    
+    .game-preview.playing .preview-hint {
+        color: #ddd !important;
+        background: rgba(40, 40, 40, 0.9);
+        border-color: rgba(100, 100, 100, 0.5);
+    }
+    
+    .score-mini {
+         color: #fff !important; /* Blanc même en mode sombre */
+         text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    }
+    
+    .tech-note small {
+        color: #999 !important;
+    }
+    
+    .tech-details-btn {
+        color: #8B4513 !important;
+    }
+    
+    .tech-details-btn:hover {
+        color: #8B4513 !important;
+    }
+    
+    .tech-details-panel {
+        background: rgba(50, 50, 50, 0.95);
+        color: #ccc;
+    }
+    
+    .tech-details-panel h4 {
+        color: #eee;
+    }
+    
+    .tech-details-panel li {
+        color: #bbb;
+    }
+    
+    .code-link {
+        color: #aaa;
+        border-bottom-color: #777;
+    }
+    
+    .code-link:hover {
+        color: #fff;
+        border-bottom-color: #fff;
+    }
+}
+
+/* Augmenter la visibilité au hover global */
+.gem-wrapper:hover {
+    opacity: 0.95; /* Presque opaque */
+}
+
+.gem-wrapper:hover .gem-title {
+    color: #444 !important;
+}
+
+.gem-wrapper:hover .gem-subtitle {
+    color: #555 !important;
+}
+
+/* Animation douce pour les changements de texte */
+.gem-title, .gem-subtitle, .play-button, .score-mini {
+    transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+/* Réduire le jeu pendant le gameplay */
+#trexMiniCanvas {
+    filter: grayscale(0.01) contrast(0.01);
+    transition: filter 0.5s ease;
+}
+
+.game-preview.playing #trexMiniCanvas {
+    filter: grayscale(0.1) contrast(1);
+}
+
+/* Responsive */
+@media (max-width: 760px) {
+    .interactive-gem {
+        padding: 0.5rem 0 1.5rem 0 !important;
+        max-width: 100%;
+    }
+    
+    .gem-wrapper {
+        padding: 0 0.5rem;
+        opacity: 0.35;
+    }
+    
+    .gem-title {
+        font-size: 0.85rem;
+    }
+    
+    .gem-subtitle {
+        font-size: 0.7rem;
+        max-width: 90%;
+    }
+    
+    #trexMiniCanvas {
+        height: 80px;
+    }
+    
+    .play-button {
+        padding: 0.4rem 1rem !important;
+        font-size: 0.8rem !important;
+    }
+    
+    .game-preview.playing .preview-hint {
+        font-size: 0.6rem !important;
+        bottom: 3px;
+    }
+}
+
+@media (max-width: 480px) {
+    #trexMiniCanvas {
+        height: 90px;
+    }
+    
+    .gem-wrapper {
+        opacity: 0.3;
+    }
+    
+    .interactive-gem {
+        animation-duration: 0.8s;
+    }
+}
+
+/* Mode sombre adaptation */
+@media (prefers-color-scheme: dark) {
+     
+    .game-preview {
+        background: rgba(30, 30, 30, 0.1) !important;
+        border-color: rgba(139,69,19,0.12) !important;
+    }
+    
+    .play-button {
+        background: rgba(100, 100, 100, 0.1) !important;
+        color: #8B4513 !important;
+        border-color: #8B4513 !important;
+    }
+    
+    .play-button:hover {
+        background: rgba(100, 100, 100, 0.1) !important;
+        color: #8B4513 !important;
+        border-color: #8B4513 !important;
+    }
+    
+    .preview-overlay {
+        background: rgba(30, 30, 30, 0.7);
+    }
+    
+    .preview-hint {
+        color: #aaa !important;
+    }
+    
+    .game-preview.playing .preview-hint {
+        background: rgba(30, 30, 30, 0.7);
+        color: #bbb !important;
+    }
+    
+    .score-mini {
+        color: #aaa !important;
+    }
+    
+    .tech-note small {
+        color: #888 !important;
+    }
+    
+    .tech-details-btn {
+        color: #8B4513 !important;
+    }
+    
+    .tech-details-btn:hover {
+        color: #8B4513 !important;
+    }
+    
+    .tech-details-panel {
+        background: rgba(40, 40, 40, 0.9);
+        color: #bbb;
+    }
+}
+
+/* Cache initialement, apparait au scroll */
+.interactive-gem {
+    opacity: 0;
+    transition: opacity 10s ease;
+}
+
+.interactive-gem.visible {
+    opacity: 0.1;
+    transform: translateY(10px);
+    transition: opacity 1.8s ease, transform 0.8s ease;
+    
+}
+
+    
+

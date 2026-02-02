@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenue dans mon Antre Glacé</title>
+    <meta name="description" content="Portfolio professionnel de Rabbit-Run.">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/main.css">
+
+    <!-- CSS du jeu (CORRIGÉ) -->
+    <link rel="stylesheet" href="./css/gem.css">
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/c1d1c4d311.js" crossorigin="anonymous"></script>
+    <!-- Mode sécurité & expériences -->
+    <script src="js/core.js" defer></script>
+    <script src="js/heartbeat.js" defer></script>
+    <script src="js/data-integrity.js" defer></script>
+    <script src="js/user-metrics.js" defer></script>
+    <script src="js/resilience-tests.js" defer></script>
+    <script src="js/experience.js" defer></script>
+
+    <!-- Favicon: use repository favicon.ico consistently -->
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+     <!-- CSS ANTI-FOUC MINIMAL -->
+    <style>
+    /* Pas besoin de CSS supplémentaire, tout est dans gem.css */
+</style>
+    <!-- Preload hero image -->
+    <link rel="preload" as="image" href="./assets/images/hero/index-hero.png">
+</head>
+<body class="index-page">
+    <!-- Navigation -->
+    <header class="header biography-header" role="banner">
+        <div class="container">
+            <nav class="nav" role="navigation" aria-label="Navigation principale">
+                <div class="logo">
+                    <a href="index.html" aria-label="Retour à l'accueil">Rabbit Portfolio Template</a>
+                </div>
+                <button class="mobile-menu-btn" aria-label="Menu mobile" aria-expanded="false">
+                    <i class="fas fa-bars" aria-hidden="true"></i>
+                </button>
+                <ul class="nav-links" role="menubar">
+                    <li role="none"><a href="index.html" class="active" role="menuitem" aria-current="page">Accueil</a></li>
+                    <li role="none"><a href="biography.html" role="menuitem">Biographie</a></li>
+                    <li role="none"><a href="contact.html" role="menuitem">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- Hero Section -->
+<section class="hero">
+    <div class="container">
+        <h1 class="hero-title">Bienvenue dans mon Antre Glacé</h1>
+        <p class="hero-subtitle">Lapin des Glaces - Développeur &amp; Explorateur Numérique</p>
+        <p class="hero-lead">De la toundra au code : mon parcours polaire</p>
+    </div>
+</section>
+
+    <!-- Gallery Section -->
+    <main class="main-content">
+        <div class="container">
+            <h2 class="section-title">La Grande Expédition du Mini-Jeu</h2>
+            
+            <!-- Filter Bar -->
+            <div class="filter-bar" id="filterBar">
+                <a href="./galerie-brou-de-noix.html" class="filter-btn">Expédition</a>
+                <a href="./galerie-fusain.html" class="filter-btn">Les Cartes Gelées</a>
+                <a href="./galerie-pastel.html" class="filter-btn">Artéfacts de Code</a>
+            </div>
+            
+            <!-- Gallery Grid -->
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Les œuvres seront chargées ici par JavaScript -->
+                <div class="loading-indicator" role="status" aria-live="polite">
+                    <span class="spinner" aria-hidden="true"></span>
+                    <span class="sr-only">Chargement des œuvres…</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="lightboxTitle" aria-describedby="lightboxDetails">
+        <div class="lightbox-content">
+            <button class="lightbox-close" id="lightboxClose" aria-label="Fermer la fenêtre">&times;</button>
+            <img class="lightbox-image" id="lightboxImage" src="" alt="">
+            <div class="lightbox-info">
+                <h3 id="lightboxTitle"></h3>
+                <p id="lightboxDetails"></p>
+                <p id="lightboxDescription"></p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- ========== SECTION JEU INTÉGRÉE ICI ========== -->
+   <section class="interactive-gem" aria-label="Démonstration technique interactive">
+  <div class="container">
+    <div class="gem-wrapper">
+      <div class="gem-intro">
+        <h3 class="gem-title">
+          <i class="fas fa-seedling" aria-hidden="true"></i>
+          Curieux !
+        </h3>
+      </div>
+
+      <div class="game-preview" id="gamePreview">
+        <div class="preview-placeholder">
+          <figure>
+            <canvas id="trexMiniCanvas"
+                    width="576"
+                    height="144"
+                    aria-label="Jeu T-Rex Runner adapté"
+                    role="application"
+                    tabindex="0">
+              Votre navigateur ne supporte pas Canvas. Une version simplifiée est disponible.
+            </canvas>
+            
+          </figure>
+
+          <div class="preview-overlay" id="previewOverlay" aria-hidden="false">
+            <button type="button" class="play-button" id="playButton"
+                    aria-label="Démarrer le jeu" aria-controls="trexMiniCanvas" aria-pressed="false">
+              <i class="fas fa-play-circle" aria-hidden="true"></i> Play
+            </button>
+            <p class="preview-hint">Clique et saute !</p>
+          </div>
+        </div>
+
+        <div class="game-controls-mini" aria-live="polite">
+          <div class="score-mini" id="scoreMini" role="status" aria-live="polite">Score: 0</div>
+          <button type="button" class="control-btn" id="toggleHelp" aria-label="Afficher les instructions">
+            <i class="fas fa-question" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+     <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                                
+                <div class="footer-section">
+                    <h3>Navigation</h3>
+                    <ul>
+                        <li><a href="./">Accueil</a></li>
+                        <li><a href="./biography.html">Biographie</a></li>
+                        <li><a href="./contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                             
+                <div class="footer-section">
+                    <h3>Réseaux sociaux</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Rabbit-Run. Tous droits pas réservés.</p>
+            </div>
+        </div>
+    </footer>
+            
+            <!-- Note très discrète -->
+            <div class="tech-note">
+                <small>
+                    <i class="fas fa-code-branch"></i>
+                    Adaptation technique d'un projet open source. 
+                    <button class="tech-details-btn" id="techDetailsBtn">Détails techniques</button>
+                </small>
+            </div>
+            
+            <!-- Détails techniques cachés -->
+            <div class="tech-details-panel" id="techDetailsPanel" style="display: none;">
+                <h4>"Un clin d'œil interactif à la curiosité et à la diversité des passions"</h4>
+                <ul>
+                    <li><strong>Technologie:</strong> HTML5 Canvas, JavaScript vanilla (ES6+)</li>
+                    <li><strong>Original:</strong> Chrome Dino Game (Google)</li>
+                    <li><strong>Adaptation:</strong> Réécriture modulaire avec design personnalisé</li>
+                    <li><strong>Performance:</strong> 60 FPS, collision detection optimisée</li>
+                    <li><strong>Code:</strong> <a href="#" class="code-link">https://github.com/Crea1ions/Rabbit-Run-Portfolio-Template</a></li>
+                </ul>
+              </div>
+            
+            </div>
+          </div>
+        </section>
+<!-- ========== FIN SECTION JEU ========== -->
+
+<!-- ===== SCRIPT D'INITIALISATION OPTIMISÉ ===== -->
+<script>
+    // Initialisation minimale et sécurisée
+    (function() {
+        'use strict';
+        
+        // État simple
+        let gameInitialized = false;
+        
+        // Style minimal pour éviter le FOUC
+        const style = document.createElement('style');
+        style.textContent = `
+            #trexMiniCanvas {
+                opacity: 1;
+                transition: opacity 0.3s ease;
+            }
+            #trexMiniCanvas.ready {
+                opacity: 1;
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Fonction d'initialisation principale
+        function initGame() {
+            if (gameInitialized) return;
+            
+            const canvas = document.getElementById('trexMiniCanvas');
+            if (!canvas) {
+                console.warn('Canvas non trouvé, retente dans 100ms');
+                setTimeout(initGame, 100);
+                return;
+            }
+            
+            if (typeof MiniTrexGame === 'undefined') {
+                console.warn('MiniTrexGame non chargé, attente...');
+                setTimeout(initGame, 50);
+                return;
+            }
+            
+            try {
+                // Initialisation
+                const game = new MiniTrexGame('trexMiniCanvas');
+                game.init();
+                gameInitialized = true;
+                
+                // Animation d'apparition
+                canvas.classList.add('ready');
+                
+                // Nettoyage après 1s
+                setTimeout(() => {
+                    if (style.parentNode) {
+                        style.remove();
+                    }
+                }, 1000);
+                
+                console.log('✅ Jeu initialisé avec succès');
+            } catch (error) {
+                console.error('Erreur initialisation jeu:', error);
+                // Fallback basique
+                canvas.style.opacity = '1';
+            }
+        }
+        
+        // Stratégie de chargement optimisée
+        function startGameInitialization() {
+            // Attendre que le DOM soit prêt
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initGame);
+            } else {
+                // DOM déjà prêt, attendre un peu pour les ressources
+                setTimeout(initGame, 100);
+            }
+            
+            // Backup timeout (2 secondes max)
+            setTimeout(() => {
+                if (!gameInitialized) {
+                    console.warn('Initialisation backup activée');
+                    initGame();
+                }
+            }, 2000);
+        }
+        
+        // Expose the initialization function so the game manager or a user action can trigger it.
+        // Do NOT auto-start here to avoid CPU work at page load.
+        window.__GRF_INIT_GAME = startGameInitialization;
+        
+    })();
+</script>
+
+<!-- ===== SCRIPT DE NAVIGATION (À AJOUTER ICI) ===== -->
+    <!-- navigation handled by js/navigation.js -->
+
+<!-- ===== CHARGEMENT DES SCRIPTS ===== -->
+    <script src="./js/utils.js" defer></script>
+    <script src="./js/artworks-data.js" defer></script>
+    <script src="./js/navigation.js" defer></script>
+    <script src="./js/gallery.js" defer></script>
+    <script src="./js/game/mini-trex.js" defer></script>
+    <script src="./js/game/game-manager.js" defer></script>
+
+</body>
+</html>

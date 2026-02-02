@@ -1,0 +1,23 @@
+[build]
+  publish = "."
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  
+  [build.environment]
+  
+  # Force le traitement des forms
+  NETLIFY_IMAGES_CDN_DOMAIN = "images.netlify.app"
+  
+  # Configuration spécifique aux forms
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+
+
+# Configuration basique pour Netlify
+# Le formulaire sera détecté automatiquement

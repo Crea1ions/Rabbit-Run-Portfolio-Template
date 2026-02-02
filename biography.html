@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Métadonnées -->
+    <title>Mon Histoire : Du Glacier au GitHub</title>
+    <meta name="description" content="Biographie de Rabbit-Run.">
+    <meta name="keywords" content="artiste">
+    
+    <!-- CSS Principal (inclut maintenant optimized.css automatiquement) -->
+    <link rel="stylesheet" href="css/main.css">
+    
+    <!-- Scripts -->
+    <script src="js/navigation.js" defer></script>
+    <script src="js/core.js" defer></script>
+    <script src="js/experience.js" defer></script>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Caveat:wght@400;500;600;700&family=Inter:wght@300;400;500&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/c1d1c4d311.js" crossorigin="anonymous" defer></script>
+    
+    <!-- Préchargement des images critiques -->
+    <link rel="preload" href="assets/images/hero/biography-hero.png" as="image">
+    <link rel="preload" href="assets/images/portfolio/Lapin-Piskel-1.png" as="image">
+    <link rel="preload" href="assets/images/portfolio/Lapin-Piskel-2.gif" as="image">
+    <link rel="preload" href="assets/images/portfolio/Lapin-Piskel-3.gif" as="image">
+           
+</head>
+<body class="biography-page">
+    <!-- Header / Navigation -->
+    <header class="header biography-header" role="banner">
+        <div class="container">
+            <nav class="nav" role="navigation" aria-label="Navigation principale">
+                <div class="logo">
+                    <a href="index.html" aria-label="Retour à l'accueil">Rabbit Portfolio Template</a>
+                </div>
+                <button class="mobile-menu-btn" aria-label="Menu mobile" aria-expanded="false">
+                    <i class="fas fa-bars" aria-hidden="true"></i>
+                </button>
+                <ul class="nav-links" role="menubar">
+                    <li role="none"><a href="index.html" role="menuitem">Accueil</a></li>
+                    <li role="none"><a href="biography.html" class="active" role="menuitem" aria-current="page">Biographie</a></li>
+                    <li role="none"><a href="contact.html" role="menuitem">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content" role="main">
+        <!-- Hero Section -->
+        <section class="biography-hero" aria-labelledby="hero-title">
+            <div class="container">
+                <h1 id="hero-title">Mon Histoire : Du Glacier au GitHub</h1>
+                <p class="subtitle">Mes Outils de Survie (Technologiques)</p>
+                
+            </div>
+        </section>
+
+        <!-- Biographie Content -->
+        <div class="biography-sections-container">
+            <!-- Première Section -->
+            <section class="biography-section" id="section-1" aria-labelledby="section-1-title">
+                <div class="container">
+                    <div class="text-container" role="article">
+                        <div class="biography-text">
+                            <div id="typewriter-text-part1" class="typewriter-text"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Image intermédiaire 1 (mobile seulement) -->
+            <div class="mobile-image-container" id="mobile-image-1">
+                <img src="assets/images/portfolio/Lapin-Piskel-4.jpg" alt="Des clôtures pour garder les carottes bien rangées" class="mobile-image">
+                <div class="image-caption">
+                    <h3 class="image-title">Des clôtures pour garder les carottes bien rangées</h3>
+                    <p class="image-subtitle">mkdir css js assets</p>
+                </div>
+            </div>
+            
+            <!-- Deuxième Section -->
+            <section class="biography-section" id="section-2" aria-labelledby="section-2-title">
+                <div class="container">
+                    <div class="text-container" role="article">
+                        <div class="biography-text">
+                            <div id="typewriter-text-part2" class="typewriter-text"></div>
+                            <p class="signature">Rabbit-Run</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Image intermédiaire 2 (mobile seulement) -->
+            <div class="mobile-image-container" id="mobile-image-2">
+                <img src="assets/images/portfolio/Lapin-Piskel-5.jpg" alt="L'inspecteur des flocons de code" class="mobile-image">
+                <div class="image-caption">
+                    <h3 class="image-title">L'inspecteur des flocons de code</h3>
+                    <p class="image-subtitle">npx eslint --init</p>
+                </div>
+            </div>
+            
+            <!-- Image finale (visible sur tous les appareils) -->
+            <div class="final-image-container">
+                <img src="assets/images/portfolio/Lapin-Piskel-3.gif" alt="Un renne pour livrer le code chaud" class="final-image">
+                <div class="image-caption">
+                    <h3 class="image-title">Un renne pour livrer le code chaud</h3>
+                    <p class="image-subtitle">npm install</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Techniques Section -->
+        <section class="techniques-section" aria-labelledby="techniques-title">
+            <div class="container">
+                <h2 id="techniques-title">Mes Techniques de Prédilection</h2>
+                <div class="techniques-grid">
+                    <article class="technique-card">
+                        <div class="technique-icon" aria-hidden="true">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>HTML</h3>
+                        <p>HTML, c'est la structure de mon igloo numérique. Chaque balise est un bloc de glace bien taillé : &lt;header&gt; pour l'entrée, &lt;main&gt; pour la pièce principale, &lt;footer&gt; pour les fondations. C'est le squelette invisible qui donne sa forme à tout site web, solide et sémantique comme la glace polaire.</p>
+                    </article>
+
+                    <article class="technique-card">
+                        <div class="technique-icon" aria-hidden="true">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <h3>CSS</h3>
+                        <p>CSS transforme la structure brute en paysage polaire. J'y définis les couleurs des aurores boréales, les ombres portées de la neige, les animations des flocons. Flexbox et Grid sont mes compas pour aligner les éléments avec la précision des cristaux de glace. C'est l'art de rendre le web beau, responsive et glacé à souhait.</p>
+                    </article>
+
+                    <article class="technique-card">
+                        <div class="technique-icon" aria-hidden="true">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3>JavaScript</h3>
+                        <p>JavaScript, c'est l'étincelle qui donne vie au froid. Je l'utilise pour faire tomber la neige, animer les transitions, valider les formulaires. React et Vue.js sont mes baguettes magiques pour créer des interfaces dynamiques. Chaque fonction est un sortilège qui transforme une page statique en expérience vivante et interactive.</p>
+                    </article>
+                </div>
+
+                <!-- Boutons de Navigation -->
+                <div class="buttons-container">
+                    <a href="index.html" class="portfolio-button" aria-label="Retour au portfolio">
+                        <i class="fas fa-arrow-left" aria-hidden="true"></i> Retour au portfolio
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                                
+                <div class="footer-section">
+                    <h3>Navigation</h3>
+                    <ul>
+                        <li><a href="./">Accueil</a></li>
+                        <li><a href="./biography.html">Biographie</a></li>
+                        <li><a href="./contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                             
+                <div class="footer-section">
+                    <h3>Réseaux sociaux</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Rabbit-Run. Tous droits pas réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Contrôles utilisateur -->
+    <div class="user-controls" role="group" aria-label="Contrôles de lecture">
+        <button class="control-btn" id="skip-animation-btn" aria-label="Afficher tout le texte instantanément">
+            <i class="fas fa-forward"></i> Tout afficher
+        </button>
+    </div>
+</body>
+</html>

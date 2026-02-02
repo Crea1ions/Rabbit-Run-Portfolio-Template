@@ -1,0 +1,32 @@
+/* main.css - Fichier principal qui importe tous les CSS */
+@import 'reset.css';
+@import 'variables.css';
+@import 'typography.css';
+@import 'layout.css';
+@import 'components.css';
+@import 'gallery.css';
+@import 'gallery-fullscreen.css';
+@import 'gem.css';
+@import 'optimized.css';
+/* Styles globaux supplémentaires */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+footer {
+    margin-top: auto;
+}
